@@ -5,13 +5,14 @@ const activityLogSchema = new mongoose.Schema(
     householdId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Household",
-      required: true,
+      required: false,
+      index: true,
     },
 
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: true,
+      required: false,
     },
 
     action: {
@@ -23,8 +24,14 @@ const activityLogSchema = new mongoose.Schema(
         "ITEM_UPDATED",
         "ITEM_EXPIRED",
         "ALERT_TRIGGERED",
+        "USER_LOGIN",
+        "USER_SIGNUP",
+        "ITEM_CONSUMED",
+        "ALERT_ACKNOWLEDGED",
+        "ITEM_DELETED"
       ],
       required: true,
+      index: true,
     },
 
     entityType: {
@@ -45,9 +52,15 @@ const activityLogSchema = new mongoose.Schema(
 
     metadata: {
       type: Object,
+      default: {},
     },
   },
   { timestamps: true }
+);
+
+activityLogSchema.index(
+  { createdAt: 1 },
+  { expireAfterSeconds: 60 * 60 * 24 * 30 }
 );
 
 module.exports = mongoose.model("ActivityLog", activityLogSchema);

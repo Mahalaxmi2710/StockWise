@@ -1,4 +1,6 @@
 require("dotenv").config();
+require("./cron/expiryCheck.job");
+require("./cron/activityCleanup");
 
 const app=require("./app");
 const connectDB=require("./config/db");
