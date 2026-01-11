@@ -143,3 +143,43 @@ exports.joinHousehold = async (req, res) => {
     });
   }
 };
+
+/* GET HOUSEHOLD DETAILS (READ-ONLY) */
+exports.getHouseholdById = async (req, res) => {
+  try {
+    const { householdId } = req.params;
+    const userId = req.user.userId;
+
+    const household = await Household.findById(householdId)
+      .select("name inviteCode members status");
+
+    if (!household) {
+      return res.status(404).json({
+        message: "Household not found",
+      });
+    }
+
+    // 🔐 Authorization: user must be a member
+    const isMember = household.members.some(
+      (m) => m.userId.toString() === userId
+    );
+
+    if (!isMember) {
+      return res.status(403).json({
+        message: "Access denied",
+      });
+    }
+
+    res.json({
+      householdId: household._id,
+      name: household.name,
+      inviteCode: household.inviteCode,
+      membersCount: household.members.length,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "Failed to fetch household",
+      error: err.message,
+    });
+  }
+};
