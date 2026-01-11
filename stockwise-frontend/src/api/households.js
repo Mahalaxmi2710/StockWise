@@ -5,3 +5,7 @@ export const createHousehold = (data) =>
 
 export const joinHousehold = (data) =>
   api.post("/households/join", data);
+
+export const getHouseholdById = (householdId) => {
+  return api.get(`/households/${householdId}`);
+};
