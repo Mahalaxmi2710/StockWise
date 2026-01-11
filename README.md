@@ -69,5 +69,64 @@ It supports multi-user households, secure access control, real-time activity log
 - JWT Authentication
 - node-cron (scheduled tasks)
 
+---
+
+## ⚙️ Installation & Setup
+
+### 📌 Prerequisites
+- Node.js (v18+)
+- MongoDB (Local or Atlas)
+- npm or yarn
+
+---
+
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/Mahalaxmi2710/StockWise.git
+cd StockWise
+```
+### 2️⃣ Backend Setup
+``` bash
+cd backend
+npm install
+```
+Create a .env file inside the backend directory:
+``` bash
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+PORT=5000
+```
+Start the backend server:
+``` bash
+npm run dev
+```
+Backend runs at:
+```bash
+http://localhost:5000
+```
+
+### 3️⃣ Frontend Setup
+
+Open a new terminal:
+``` bash
+cd frontend
+npm install
+npm start
+```
+
+Frontend runs at:
+``` bash
+http://localhost:3000
+```
+
+## 🚀 Usage Flow
+
+1. Register and log in
+2. Create or join a household using an invite code
+3. Add inventory items with expiry dates
+4. Receive alerts for expiring items
+5. View dashboard analytics and insights
+6. Track activity across household members
+
 
 
