@@ -48,9 +48,7 @@ It supports multi-user households, secure access control, real-time activity log
 
 ### 🎨 UI & UX
 - Filterable alerts (severity, acknowledgment status)
-- Relative timestamps (e.g., “2 min ago”)
 - Clean dark-themed UI for better readability
-- Mobile-friendly hamburger navigation
 - Smooth, modern, theme-consistent styling
 
 ---
