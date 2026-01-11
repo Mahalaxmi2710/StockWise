@@ -1,22 +1,27 @@
-# StockWise - Smart Household Inventory & Alert System
+## 📦 StockWise — Smart Household Inventory & Alert System
 
-A full-stack web application to manage household inventory with automated expiry alerts, activity tracking, and secure multi-user access.
-
-This system helps users track inventory items, receive timely expiry alerts, and maintain transparency through detailed activity logs within shared households.
+StockWise is a full-stack household inventory management system designed to help users track items, monitor expiry dates, reduce waste, and gain meaningful insights through analytics.
+It supports multi-user households, secure access control, real-time activity logging, and smart consumption trends.
 
 ---
 
 ## 🚀 Features
 
-### 🔐 Authentication & Access Control
+### 🔐 Authentication & Security
 - JWT-based authentication
-- Protected backend routes
-- Household-based access (users see only their households’ data)
+- Session expiry with forced re-login
+- Secure role-based household access
+- Protected routes (frontend & backend)
+
+### 🏠 Household Management
+- Create and join households using invite codes
+- Household-scoped inventory and activity
+- Member-only access enforcement
 
 ### 📦 Inventory Management
-- Add, update, consume, and delete inventory items
-- Track expiry dates and item status (ACTIVE / EXPIRED)
-- Centralized inventory per household
+- Add, update, consume, and delete items
+- Track item quantities and expiry dates
+- Automatic classification: Active / Consumed / Wasted
 
 ### ⏰ Automated Expiry Alerts
 - Cron job runs daily to detect upcoming expiries
@@ -27,6 +32,12 @@ This system helps users track inventory items, receive timely expiry alerts, and
 - Severity levels: LOW, MEDIUM, HIGH, CRITICAL
 - Alert acknowledgment system
 
+### 📊 Dashboard & Analytics
+- Inventory summary (total, active, consumed, wasted)
+- Most used and most wasted items
+- Consumption trend visualization (SVG line chart)
+- Smart suggestions based on usage patterns
+
 ### 📝 Activity Logs
 - Logs all critical actions:
   - Inventory changes
@@ -35,10 +46,12 @@ This system helps users track inventory items, receive timely expiry alerts, and
 - Grouped by time (Today / Yesterday / Earlier)
 - Filterable by user, entity, and action
 
-### 🎯 User Experience
+### 🎨 UI & UX
 - Filterable alerts (severity, acknowledgment status)
 - Relative timestamps (e.g., “2 min ago”)
 - Clean dark-themed UI for better readability
+- Mobile-friendly hamburger navigation
+- Smooth, modern, theme-consistent styling
 
 ---
 
@@ -46,6 +59,8 @@ This system helps users track inventory items, receive timely expiry alerts, and
 
 ### Frontend
 - React
+- React Router
+- Axios
 - JavaScript
 - CSS (custom dark theme)
 
